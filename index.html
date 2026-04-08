@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cháo Dinh Dưỡng Cao Cấp | Đặt Hàng Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <ion-icon name="restaurant-outline"></ion-icon>
+            <span>Panda Porridge</span>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <ion-icon name="cart-outline"></ion-icon>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Đậm Vị Mẹ Nấu,<br>Tròn Dưỡng Chất Tiên Phong</h1>
+            <p>100% Nguyên liệu tươi tươm tất mỗi ngày. Nước cốt hầm xương ngọt thanh mát lành.</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-container">
+        <h2>Thực Đơn Cháo Dinh Dưỡng</h2>
+        <div class="menu-grid" id="menu-grid">
+            <!-- Món ăn sẽ được render bằng Javascript -->
+        </div>
+    </section>
+
+    <!-- Cart Overlay / Modal -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart(event)">
+        <div class="cart-sidebar" id="cart-sidebar" onclick="event.stopPropagation()">
+            <div class="cart-header">
+                <h2>Giỏ Hàng Của Bạn</h2>
+                <ion-icon name="close-outline" class="close-btn" onclick="toggleCart()"></ion-icon>
+            </div>
+            
+            <div class="cart-items" id="cart-items">
+                <!-- Giỏ hàng trống / Món ăn sẽ được render vào đây -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="total">
+                    <span>Tổng cộng:</span>
+                    <span id="cart-total">0₫</span>
+                </div>
+                <!-- Nút chuyển sang thanh toán -->
+                <button class="btn btn-primary btn-checkout" onclick="openCheckout()">Thanh Toán Ngay</button>
+            </div>
+            
+            <!-- Form Checkout (Bị ẩn ban đầu) -->
+            <div class="checkout-form" id="checkout-form" style="display: none;">
+                <h3>Thông Tin Giao Hàng</h3>
+                <div class="input-group">
+                    <label>Tên người nhận (*)</label>
+                    <input type="text" id="customer-name" placeholder="Nhập tên của bạn" required>
+                </div>
+                <div class="input-group">
+                    <label>Số điện thoại (*)</label>
+                    <input type="tel" id="customer-phone" placeholder="Nhập SĐT" required>
+                </div>
+                <div class="input-group">
+                    <label>Địa chỉ nhận hàng (*)</label>
+                    <input type="text" id="customer-address" placeholder="Số nhà, đường, phường, quận..." required>
+                </div>
+                <div class="input-group">
+                    <label>Ghi chú (Tùy chọn)</label>
+                    <input type="text" id="customer-note" placeholder="Ví dụ: Lấy nhiều hành, giao sau 10h...">
+                </div>
+                
+                <div class="checkout-actions">
+                    <button class="btn btn-secondary" onclick="closeCheckout()">Quay lại</button>
+                    <button class="btn btn-primary" id="btn-submit-order" onclick="submitOrder()">Đặt Hàng</button>
+                </div>
+            </div>
+
+            <!-- Loader / Success Message -->
+            <div class="order-status" id="order-status" style="display: none;">
+                <div id="loader" class="loader"></div>
+                <div id="success-message" style="display: none;">
+                    <ion-icon name="checkmark-circle" style="color: #4CAF50; font-size: 64px;"></ion-icon>
+                    <h3>Đặt Hàng Thành Công!</h3>
+                    <p>Panda Porridge sẽ gọi điện xác nhận đơn hàng với bạn trong ít phút nữa.</p>
+                    <button class="btn btn-primary" onclick="resetApp()">Tiếp tục xem menu</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">Đã thêm món vào giỏ!</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
