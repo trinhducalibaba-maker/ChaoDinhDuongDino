@@ -5,42 +5,42 @@ const MENU_DATA = [
         name: 'Cháo Lươn Đồng Hạt Sen',
         description: 'Lươn đồng tươi xào nghệ, hạt sen bùi béo kết hợp cháo xương hầm ngọt thanh.',
         price: 35000,
-        image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&q=80&w=400'
+        image: 'https://cdn.eva.vn/upload/1-2021/images/2021-03-13/image5-1615626180-967-width500height400.png'
     },
     {
         id: 'p2',
         name: 'Cháo Bắp Bò Úc Bí Đỏ',
         description: 'Thịt bò Úc thượng hạng băm nhỏ, bí đỏ nấm hương giàu vitamin cho bé.',
         price: 40000,
-        image: 'https://images.unsplash.com/photo-1549420956-62ce9c227f27?auto=format&fit=crop&q=80&w=400'
+        image: 'https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/169064/Originals/chao-bi-do-2.jpg'
     },
     {
         id: 'p3',
         name: 'Cháo Gà Ác Tiềm Thuốc Bắc',
         description: 'Gà ác hầm kỷ tử, táo đỏ, sâm dứa giúp phục hồi sức khỏe tuyệt vời.',
         price: 45000,
-        image: 'https://images.unsplash.com/photo-1588673756200-349f7823f6cb?auto=format&fit=crop&q=80&w=400'
+        image: 'https://dieutribiengan.com/wp-content/uploads/2020/01/chao-ga-ac-hat-sen-an-dam-cho-be.jpg'
     },
     {
         id: 'p4',
         name: 'Cháo Chim Bồ Câu Đậu Xanh',
         description: 'Thịt bồ câu dai thơm, đậu xanh giải nhiệt mang lại bữa ăn đậm vị quê hương.',
         price: 50000,
-        image: 'https://images.unsplash.com/photo-1620023425317-10ce6e537e23?auto=format&fit=crop&q=80&w=400'
+        image: 'https://sakuraschools.edu.vn/wp-content/uploads/2024/03/Cach-nau-chao-bo-cau-bi-do-cho-be-7-thang-bo-duong.jpg'
     },
     {
         id: 'p5',
         name: 'Cháo Cá Hồi Na Uy Rau Ngót',
         description: 'Cá hồi Na Uy giàu Omega-3 và rau ngót mát lành dịu êm.',
         price: 55000,
-        image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=400'
+        image: 'https://cdnv2.tgdd.vn/mwg-static/common/Common/chao-ca-hoi-rau-ngottt.jpg'
     },
     {
         id: 'p6',
         name: 'Cháo Móng Giò Hạt Óc Chó',
         description: 'Móng giò hầm nhừ, kết hợp hạt óc chó giàu dưỡng chất trí não cho trẻ nhỏ.',
         price: 45000,
-        image: 'https://images.unsplash.com/photo-1579712267685-42da80f60aa4?auto=format&fit=crop&q=80&w=400'
+        image: 'https://www.cet.edu.vn/wp-content/uploads/2018/11/chao-mong-gio-cho-be.jpg'
     }
 ];
 
