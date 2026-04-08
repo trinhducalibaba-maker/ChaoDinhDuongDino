@@ -212,7 +212,7 @@ function submitOrder() {
     };
 
     // --- BẠN DÁN LINK WEBHOOK CỦA GOOGLE SHEETS VÀO ĐÂY --- //
-    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycby911KEgzdK9_egkZgUu1DY9DuPQ_yv_htDRGHtcb51tkbnkRRl8x7e4UeBKeoaXIZf/exec';
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxJ0zLtrqMf77FKJY-7i5OuZ1t2VutqRL9TjqJivsYb765tDlKV8i6JcSoRExL3kOPo/exec';
 
     fetch(WEBHOOK_URL, {
         method: 'POST',
