@@ -13,8 +13,11 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="logo">
-            <ion-icon name="restaurant-outline"></ion-icon>
-            <span>Cháo Dinh Dưỡng Dino Khủng Long</span>
+           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+    <path d="M18 3c-1.1 0-2 .9-2 2v1h-1V5c0-1.1-.9-2-2-2s-2 .9-2 2v1H9.4C7.5 6 6 7.5 6 9.4V11c-1.1 0-2 .9-2 2s.9 2 2 2v2c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-2c1.1 0 2-.9 2-2s-.9-2-2-2V9.4c0-1.9-1.5-3.4-3.4-3.4H16V5c0-1.1-.9-2-2-2z" fill="#4CAF50"/>
+    <path d="M10 13a1 1 0 100-2 1 1 0 000 2zM14 13a1 1 0 100-2 1 1 0 000 2z" fill="white"/>
+</svg>
+            <span>Cháo Dinh Dưỡng Dino</span>
         </div>
         <div class="cart-icon" onclick="toggleCart()">
             <ion-icon name="cart-outline"></ion-icon>
@@ -25,7 +28,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Nơi Bạn Tìm Thấy Giá Trị Dinh Dưỡng Trọn Vẹn Cho Bé Yêu</h1>
+            <h1>Đậm Vị Mẹ Nấu,<br>Tròn Dưỡng Chất Cho Con</h1>
             <p>100% Nguyên liệu tươi tươm tất mỗi ngày. Nước cốt hầm xương ngọt thanh mát lành.</p>
         </div>
     </section>
@@ -89,13 +92,84 @@
             <div class="order-status" id="order-status" style="display: none;">
                 <div id="loader" class="loader"></div>
                 <div id="success-message" style="display: none;">
-                    <ion-icon name="checkmark-circle" style="color: #4CAF50; font-size: 64px;"></ion-icon>
-                    <h3>Đặt Hàng Thành Công!</h3>
-                    <p>Cháo Dinh Dưỡng Dino sẽ liên hệ xác nhận đơn hàng với bạn trong ít phút nữa.</p>
-                    <button class="btn btn-primary" onclick="resetApp()">Tiếp tục xem menu</button>
+                    <div class="payment-success-header">
+                        <ion-icon name="checkmark-circle" class="success-icon"></ion-icon>
+                        <h3>Đặt Hàng Thành Công!</h3>
+                        <p>Vui lòng thanh toán để đơn hàng được xử lý nhanh nhất.</p>
+                    </div>
+
+                    <div class="payment-card">
+                        <div class="qr-container">
+                            <img id="qr-code" src="" alt="Mã QR Thanh Toán">
+                            <div class="qr-overlay" id="qr-loader">
+                                <div class="loader-small"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bank-details">
+                            <div class="bank-item">
+                                <span class="label">Ngân hàng:</span>
+                                <span class="value">Vietcombank</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="label">Số tài khoản:</span>
+                                <div class="value-row">
+                                    <span class="value" id="bank-acc">0251002725724</span>
+                                    <button class="copy-btn" onclick="copyText('0251002725724')">
+                                        <ion-icon name="copy-outline"></ion-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bank-item">
+                                <span class="label">Chủ tài khoản:</span>
+                                <span class="value">TRINH HOAI DUC</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="label">Số tiền:</span>
+                                <span class="value total-highlight" id="payment-total">0₫</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="label">Nội dung:</span>
+                                <div class="value-row">
+                                    <span class="value" id="payment-desc">CHAO DINH DUONG</span>
+                                    <button class="copy-btn" id="copy-desc-btn">
+                                        <ion-icon name="copy-outline"></ion-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="payment-note">Lưu ý: Sau khi chuyển khoản, đơn hàng sẽ được tự động xác nhận.</p>
+                    
+                    <button class="btn btn-primary w-100" onclick="resetApp()">Đã thanh toán / Quay lại Menu</button>
                 </div>
             </div>
             
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal-overlay" id="product-modal-overlay" onclick="closeProductModal(event)">
+        <div class="product-modal" id="product-modal" onclick="event.stopPropagation()">
+            <ion-icon name="close-circle" class="modal-close-btn" onclick="closeProductModal()"></ion-icon>
+            <div class="modal-img-wrapper">
+                <img id="modal-img" src="" alt="Food Image">
+            </div>
+            <div class="modal-content">
+                <h2 id="modal-title"></h2>
+                <div class="modal-price" id="modal-price"></div>
+                <p id="modal-desc" class="modal-desc"></p>
+                
+                <div class="nutrition-section">
+                    <h3><ion-icon name="leaf-outline"></ion-icon> Thông tin dinh dưỡng</h3>
+                    <ul class="nutrition-list" id="modal-nutrition">
+                        <!-- Danh sách dọc render bằng JS -->
+                    </ul>
+                </div>
+                
+                <button class="btn btn-primary w-100 mt-3" id="modal-add-btn" style="margin-top: 15px;">Thêm Vào Giỏ</button>
+            </div>
         </div>
     </div>
 
